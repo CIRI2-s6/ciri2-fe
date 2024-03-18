@@ -18,17 +18,19 @@ export class HomeComponent {
   response = signal<Object | null>(null);
 
   sendRequest() {
-    this.http.get('http://localhost:8080/example').subscribe(
-      (response) => {
-        console.log(response);
-        this.response.set(JSON.stringify(response));
-        this.notifier.notify('success', 'Request successful!');
-      },
-      (error) => {
-        console.log(error);
-        this.response.set(JSON.stringify(error));
-        this.notifier.notify('error', 'Request failed!');
-      }
-    );
+    this.http
+      .get('http://localhost:8080/components/65f86079ab895ac6a6fe0952')
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.response.set(JSON.stringify(response));
+          this.notifier.notify('success', 'Request successful!');
+        },
+        (error) => {
+          console.log(error);
+          this.response.set(JSON.stringify(error));
+          this.notifier.notify('error', 'Request failed!');
+        }
+      );
   }
 }

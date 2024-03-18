@@ -12,7 +12,7 @@ COPY --from=dependencies ./ciri2/node_modules ./node_modules
 RUN pnpm run build
 
 # Stage 2: Serve the application from Nginx
-FROM nginx
+FROM nginx:alpine
 COPY --from=build /app/dist/ciri2/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d
 EXPOSE 4200

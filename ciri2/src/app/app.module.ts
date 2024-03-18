@@ -23,7 +23,7 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
         redirect_uri: window.location.origin,
       },
       httpInterceptor: {
-        allowedList: ['http://localhost:8080/example'],
+        allowedList: ['http://localhost:8080/components/*'],
       },
     }),
     HttpClientModule,
