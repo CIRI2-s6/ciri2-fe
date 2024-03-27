@@ -6,10 +6,8 @@ name: Node.js CI
 on:
   push:
 
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,12 +16,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm i -g pnpm
-    - run: pnpm i
-    - run: pnpm run build --if-present
+      - uses: actions/checkout@v3
+        with:
+          path: ciri2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm i -g pnpm
+      - run: pnpm i
+      - run: pnpm run build --if-present
