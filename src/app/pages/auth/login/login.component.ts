@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { AuthButtonComponent } from '../../../components/buttons/auth.button';
+import { AuthButtonComponent } from '../../../components/buttons/authButton/auth.button';
 
 @Component({
   selector: 'app-login',

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { AuthButtonComponent } from '../../buttons/auth.button';
-import { LogoutButtonComponent } from '../../buttons/logout.button';
+import { AuthButtonComponent } from '../../buttons/authButton/auth.button';
+import { LogoutButtonComponent } from '../../buttons/logoutButton/logout.button';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -34,8 +34,5 @@ export class NavbarComponent {
         }
       };
     }
-    this.auth.user$.subscribe((token) => {
-      console.log(token);
-    });
   }
 }
