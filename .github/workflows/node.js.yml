@@ -3,9 +3,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: "ciri2"
     strategy:
       matrix:
         node-version: [20]
