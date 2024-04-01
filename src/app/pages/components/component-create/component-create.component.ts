@@ -11,6 +11,8 @@ import { ColumnTypes } from '../../../components/table/models/column.model';
 import { TableComponent } from '../../../components/table/table.component';
 import { Ciri2ButtonComponent } from '../../../components/buttons/ciri2-button/Ciri2Button.component';
 import { ComponentService } from '../../../service/data-access/component.service';
+import { StepperComponent } from '../../../components/stepper/stepper.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-component-create',
@@ -20,13 +22,14 @@ import { ComponentService } from '../../../service/data-access/component.service
     DragAndDropComponent,
     TableComponent,
     Ciri2ButtonComponent,
+    StepperComponent,
   ],
   templateUrl: './component-create.component.html',
   styleUrl: './component-create.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComponentCreateComponent {
-  constructor(private service: ComponentService) {}
+  constructor(private service: ComponentService, private router: Router) {}
 
   step = signal<number>(0);
   processedFile = signal<boolean>(false);
@@ -128,6 +131,7 @@ export class ComponentCreateComponent {
 
   importNewComponents() {
     console.log('Importing new components');
+    this.nextStep();
     console.log(this.newComponents());
     this.service
       .batchImportComponents(this.processComponents(this.newComponents()))
@@ -139,6 +143,7 @@ export class ComponentCreateComponent {
 
   importAllComponents() {
     console.log('Importing all components');
+    this.nextStep();
     this.service
       .batchImportComponents(this.processComponents(this.components()))
       .subscribe((response: any) => {
@@ -169,5 +174,9 @@ export class ComponentCreateComponent {
         };
       })
       .filter((component) => component !== null) as any[];
+  }
+
+  finish() {
+    this.router.navigate(['/components']);
   }
 }
