@@ -6,14 +6,16 @@ import { NotifierService } from 'angular-notifier';
 import { PermissionGuard } from './permission.guard';
 
 describe('PermissionGuard', () => {
-  it('should allow access if user is logged in and has required roles', () => {
-    const authServiceMock = {
-      user$: of({ 'http://api.ciri2.com/roles': ['admin'] }),
+  let authServiceMock: any;
+  let notifierServiceMock;
+  let guard: PermissionGuard;
+
+  beforeEach(() => {
+    authServiceMock = {
+      user$: of({ 'http://api.ciri2.com/roles': [] }),
     };
 
-    const notifierServiceMock = jasmine.createSpyObj('NotifierService', [
-      'notify',
-    ]);
+    notifierServiceMock = jasmine.createSpyObj('NotifierService', ['notify']);
 
     TestBed.configureTestingModule({
       providers: [
@@ -23,7 +25,12 @@ describe('PermissionGuard', () => {
       ],
     });
 
-    const guard = TestBed.inject(PermissionGuard);
+    guard = TestBed.inject(PermissionGuard);
+  });
+
+  it('should allow access if user is logged in and has required roles', () => {
+    authServiceMock.user$ = of({ 'http://api.ciri2.com/roles': ['admin'] });
+
     const route = {
       data: { roles: ['admin'] },
     } as unknown as ActivatedRouteSnapshot;
@@ -33,22 +40,6 @@ describe('PermissionGuard', () => {
   });
 
   it('should not allow access if user is not logged in', () => {
-    const authServiceMock = {
-      user$: of({ 'http://api.ciri2.com/roles': [] }),
-    };
-    const notifierServiceMock = jasmine.createSpyObj('NotifierService', [
-      'notify',
-    ]);
-
-    TestBed.configureTestingModule({
-      providers: [
-        PermissionGuard,
-        { provide: NotifierService, useValue: notifierServiceMock },
-        { provide: AuthService, useValue: authServiceMock },
-      ],
-    });
-
-    const guard = TestBed.inject(PermissionGuard);
     const route = {
       data: { roles: [''] },
     } as unknown as ActivatedRouteSnapshot;

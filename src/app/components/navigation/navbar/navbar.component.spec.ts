@@ -35,3 +35,23 @@ describe('NavbarComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+it('should toggle menu when hamburger is clicked', () => {
+  // Arrange
+  const hamburger = document.createElement('div');
+  hamburger.id = 'hamburger';
+  document.body.appendChild(hamburger);
+  const navToggle = document.createElement('div');
+  navToggle.classList.add('toggle');
+  document.body.appendChild(navToggle);
+
+  // Act
+  hamburger.click();
+
+  // Assert
+  expect(navToggle.classList.contains('hidden')).toBe(false);
+
+  // Clean up
+  document.body.removeChild(hamburger);
+  document.body.removeChild(navToggle);
+});
