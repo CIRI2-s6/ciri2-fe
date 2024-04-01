@@ -1,0 +1,16 @@
+<div class="upload-container" (fileDropped)="fileChanged$.next($event)">
+  <input
+    #fileSelector
+    type="file"
+    accept=".csv"
+    #fileDropRef
+    id="fileDropRef"
+    (change)="fileChanged$.next($event)"
+  />
+  <section class="content w-100">
+    <mat-icon >cloud_upload</mat-icon>
+    <div>Drag and drop</div>
+    <div class="divider">Or </div>
+    <label for="fileDropRef"> Select files</label>
+  </section>
+</div>

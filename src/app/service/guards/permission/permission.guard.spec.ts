@@ -4,6 +4,7 @@ import { ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { NotifierService } from 'angular-notifier';
 import { PermissionGuard } from './permission.guard';
+import { environment } from '../../../../environments/environment';
 
 describe('PermissionGuard', () => {
   let authServiceMock: any;
@@ -12,7 +13,7 @@ describe('PermissionGuard', () => {
 
   beforeEach(() => {
     authServiceMock = {
-      user$: of({ 'http://api.ciri2.com/roles': [] }),
+      user$: of({ [environment.roleKey]: [] }),
     };
 
     notifierServiceMock = jasmine.createSpyObj('NotifierService', ['notify']);
@@ -29,7 +30,7 @@ describe('PermissionGuard', () => {
   });
 
   it('should allow access if user is logged in and has required roles', () => {
-    authServiceMock.user$ = of({ 'http://api.ciri2.com/roles': ['admin'] });
+    authServiceMock.user$ = of({ [environment.roleKey]: ['admin'] });
 
     const route = {
       data: { roles: ['admin'] },

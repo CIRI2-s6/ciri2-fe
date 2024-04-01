@@ -8,6 +8,7 @@ import { AuthModule, AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { NotifierModule } from 'angular-notifier';
 import { notifierOptions } from './options/notifierOptions';
 import { NavbarComponent } from './components/navigation/navbar/navbar.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,14 +17,14 @@ import { NavbarComponent } from './components/navigation/navbar/navbar.component
     BrowserModule,
     AppRoutingModule,
     AuthModule.forRoot({
-      domain: 'dev-or5ax9l3.us.auth0.com',
-      clientId: 'H28yGpxGSrtT6tfOfXZJKuj36XsUYxBQ',
+      domain: environment.domain,
+      clientId: environment.clientId,
       authorizationParams: {
-        audience: 'http://api.ciri2.com',
+        audience: environment.audience,
         redirect_uri: window.location.origin,
       },
       httpInterceptor: {
-        allowedList: ['http://localhost:8080/components/*'],
+        allowedList: [environment.apiUrl + '/*'],
       },
     }),
     HttpClientModule,

@@ -1,0 +1,19 @@
+tr {
+  @apply cursor-pointer transition duration-200 ease-in-out;
+
+  &:hover {
+    @apply bg-gray-300;
+  }
+}
+
+th {
+  @apply border-b border-gray-300 text-black font-medium text-base;
+
+  &.cdk-column-select {
+    @apply w-12;
+  }
+
+  &.cdk-column-actions {
+    @apply w-32;
+  }
+}

@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
   selector: 'app-logout-button',
   template: `
     <button
-      class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right hover:bg-red-900 bg-red-500 text-white md:rounded"
+      class="toggle hidden md:flex w-full md:w-auto px-4 py-2 text-right bg-error text-white md:rounded"
       (click)="logout()"
     >
       Log out

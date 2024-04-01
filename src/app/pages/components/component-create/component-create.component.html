@@ -1,0 +1,22 @@
+<div>
+  @if (step() === 0) {
+<ciri2-drag-and-drop (parsedFile)="processFile($event)"/>
+  } @else if (step() === 1){
+
+<ciri2-table [columns]="viewColumns()" [data]="components().slice(0,10)" />
+<app-ciri2-button [text]="'Check all '+ components().length + ' entries'" color="primary" (onClick)="nextStep()"></app-ciri2-button>
+  } @else if (step() ===2 ){
+
+      <div class=" flex justify-center">
+        <div class="flex flex-col">
+          <p>{{duplicateComponents().length}} components already exist,
+            if you want to overwrite these components select overwrite old components,
+            otherwise these components will be ignored and only new ones will be imported</p>
+            <div class="flex">
+              <app-ciri2-button [text]="'Import only new '+newComponents().length + ' components'" color="primary" (onClick)="importNewComponents()"></app-ciri2-button>
+              <app-ciri2-button [text]="'Import all' + components().length + 'components'" color="error" (onClick)="importAllComponents()"></app-ciri2-button>
+            </div>
+        </div>
+      </div>
+  }
+</div>

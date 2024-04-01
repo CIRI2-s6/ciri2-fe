@@ -4,6 +4,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { AuthButtonComponent } from '../../buttons/authButton/auth.button';
 import { LogoutButtonComponent } from '../../buttons/logoutButton/logout.button';
 import { RouterLink } from '@angular/router';
+import { RoleDirective } from '../../../service/directives/role.directive';
 
 @Component({
   selector: 'app-navbar',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
     AuthButtonComponent,
     LogoutButtonComponent,
     RouterLink,
+    RoleDirective,
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',

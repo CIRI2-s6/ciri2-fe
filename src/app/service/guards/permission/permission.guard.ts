@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { NotifierService } from 'angular-notifier';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PermissionGuard {
@@ -16,7 +17,7 @@ export class PermissionGuard {
       if (!user) return false;
       if (!route.data['roles']) return true;
       const roles = route.data['roles'] as Array<string>;
-      const userRoles = user['http://api.ciri2.com/roles'];
+      const userRoles = user[environment.roleKey];
       console.log(userRoles.some((role: any) => roles.includes(role)));
       if (!userRoles.some((role: any) => roles.includes(role))) {
         this.notifierService.notify(

@@ -1,0 +1,49 @@
+<div class="w-full h-full flex items-center">
+  <p class="mr-3">Page size:</p>
+  <div class="relative">
+    <div class="relative">
+      <div
+        *ngIf="dropDownOpen()"
+        class="absolute bottom-full mt-12 w-20 bg-white rounded-lg shadow-lg z-10 border border-gray-400"
+      >
+        <ul class="py-1 drop-shadow-lg">
+          <li
+            *ngFor="let size of pageSizes"
+            class="cursor-pointer hover:bg-gray-200 pl-5"
+            (click)="changePageSize(size)"
+          >
+            {{ size }}
+          </li>
+        </ul>
+      </div>
+      <button
+        class="py-1 px-2 bg-white rounded-lg shadow-md text-gray-700 font-bold flex items-center justify-between w-20 border border-gray-400 mr-5"
+        (click)="toggleDropDown()"
+      >
+        <span>{{ selectedPageSize }}</span>
+      </button>
+    </div>
+  </div>
+  <p class="mr-3">
+    {{ currentPage() * selectedPageSize }} - {{ ceilAtMaxItems() }} of
+    {{ totalItems }}
+  </p>
+
+  <div class="flex items-center">
+    <button
+      [disabled]="currentPage() == 0"
+      ngClass="{{ currentPage() == 0 ? 'text-grey' : 'black' }}"
+      (click)="subtractCurrentPage()"
+      class="mr-1"
+    >
+      <mat-icon text style="font-size: 16px">arrow_back_ios</mat-icon>
+    </button>
+    <button
+      [disabled]="atLastPage()"
+      ngClass="{{ atLastPage() ? 'text-grey' : 'black' }}"
+      (click)="addCurrentPage()"
+    >
+      <mat-icon text style="font-size: 16px">arrow_forward_ios</mat-icon>
+    </button>
+  </div>
+</div>

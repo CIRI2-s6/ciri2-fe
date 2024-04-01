@@ -1,25 +1,30 @@
 import {
   Router
-} from "./chunk-BVSGZI2Q.js";
-import "./chunk-FFYKCBQL.js";
-import "./chunk-4BCZBWWA.js";
+} from "./chunk-MOX22337.js";
+import "./chunk-JSTXQETI.js";
+import "./chunk-GDIWYF4O.js";
 import {
   Location
-} from "./chunk-ZHMGMVY2.js";
+} from "./chunk-SSX5PRZK.js";
 import {
-  BehaviorSubject,
   Inject,
   Injectable,
   InjectionToken,
   Injector,
   NgModule,
   Optional,
+  VERSION,
+  inject,
+  setClassMetadata,
+  ɵɵdefineInjectable,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule,
+  ɵɵinject
+} from "./chunk-7JWROAD7.js";
+import {
+  BehaviorSubject,
   ReplaySubject,
   Subject,
-  VERSION,
-  __async,
-  __spreadProps,
-  __spreadValues,
   catchError,
   concatMap,
   defer,
@@ -28,7 +33,6 @@ import {
   first,
   from,
   iif,
-  inject,
   map,
   mapTo,
   merge,
@@ -36,19 +40,19 @@ import {
   of,
   pluck,
   scan,
-  setClassMetadata,
   shareReplay,
   switchMap,
   take,
   takeUntil,
   tap,
   throwError,
-  withLatestFrom,
-  ɵɵdefineInjectable,
-  ɵɵdefineInjector,
-  ɵɵdefineNgModule,
-  ɵɵinject
-} from "./chunk-EAZNXLAH.js";
+  withLatestFrom
+} from "./chunk-BEKXVA35.js";
+import {
+  __async,
+  __spreadProps,
+  __spreadValues
+} from "./chunk-WKYGNSYM.js";
 
 // node_modules/.pnpm/@auth0+auth0-spa-js@2.1.3/node_modules/@auth0/auth0-spa-js/dist/auth0-spa-js.production.esm.js
 function e(e2, t2) {

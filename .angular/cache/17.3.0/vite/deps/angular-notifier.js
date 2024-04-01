@@ -3,7 +3,7 @@ import {
   NgForOf,
   NgIf,
   NgTemplateOutlet
-} from "./chunk-ZHMGMVY2.js";
+} from "./chunk-SSX5PRZK.js";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -17,7 +17,6 @@ import {
   NgModule,
   Output,
   Renderer2,
-  Subject,
   setClassMetadata,
   ɵɵProvidersFeature,
   ɵɵadvance,
@@ -44,7 +43,11 @@ import {
   ɵɵtemplateRefExtractor,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-EAZNXLAH.js";
+} from "./chunk-7JWROAD7.js";
+import {
+  Subject
+} from "./chunk-BEKXVA35.js";
+import "./chunk-WKYGNSYM.js";
 
 // node_modules/.pnpm/angular-notifier@14.0.0_@angular+common@17.3.0_@angular+core@17.3.0/node_modules/angular-notifier/fesm2022/angular-notifier.mjs
 var _c0 = (a0) => ({
