@@ -17,6 +17,7 @@ export class RoleDirective {
   }
 
   ngOnInit() {
+    if (!this.auth.user$) return false;
     return this.auth.user$.subscribe((user) => {
       if (!user) {
         this.renderer.setStyle(this.el.nativeElement, 'display', 'none');

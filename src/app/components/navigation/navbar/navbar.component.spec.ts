@@ -3,6 +3,7 @@ import { NavbarComponent } from './navbar.component';
 import { AuthService } from '@auth0/auth0-angular';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
+import { RoleDirective } from '../../../service/directives/role.directive';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -17,7 +18,7 @@ describe('NavbarComponent', () => {
     ]);
 
     await TestBed.configureTestingModule({
-      imports: [NavbarComponent],
+      imports: [NavbarComponent, RoleDirective],
       providers: [
         { provide: AuthService, useValue: authServiceMock },
         { provide: ActivatedRoute, useValue: { params: of({ id: 'testId' }) } }, // Mock ActivatedRoute
