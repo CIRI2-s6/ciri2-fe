@@ -3,8 +3,8 @@ export const environment = {
   apiUrl: 'http://localhost:8080',
 
   // Auth0 configuration
-  audience: 'http://api.ciri2.com',
-  domain: 'dev-or5ax9l3.us.auth0.com',
-  clientId: 'H28yGpxGSrtT6tfOfXZJKuj36XsUYxBQ',
-  roleKey: 'http://api.ciri2.com/roles'
+  audience: 'https://ciri2.com',
+  domain: 'ciri2.eu.auth0.com',
+  clientId: 'KrDBnC6RWB2UtfisKSOkiFgTmvHIK6lU',
+  roleKey: 'https://ciri2.com/roles'
 };

@@ -1,17 +1,23 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 import Papa, { ParseResult } from 'papaparse';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'ciri2-drag-and-drop',
+  selector: 'app-ciri2-drag-and-drop',
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './drag-and-drop.component.html',
   styleUrls: ['./drag-and-drop.component.scss']
 })
-export class DragAndDropComponent {
+export class DragAndDropComponent implements OnInit, OnDestroy {
   fileChanged$ = new Subject<Event>();
   fileString$ = new Subject<string>();
   destroy$ = new Subject<void>();

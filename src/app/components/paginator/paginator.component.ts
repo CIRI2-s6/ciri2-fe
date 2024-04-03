@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'ciri2-paginator',
+  selector: 'app-ciri2-paginator',
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './paginator.component.html',

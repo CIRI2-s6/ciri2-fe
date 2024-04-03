@@ -42,7 +42,6 @@ export class ComponentOverviewComponent implements OnInit {
     return this.componentToColumns();
   });
   displayComponents = computed(() => {
-    console.log(this.components());
     return this.components().map((component) => {
       return {
         ...component,
@@ -52,7 +51,6 @@ export class ComponentOverviewComponent implements OnInit {
   });
 
   ngOnInit() {
-    console.log('Component Overview');
     this.itemsAreLoading.set(true);
   }
 

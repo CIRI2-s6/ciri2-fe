@@ -27,11 +27,11 @@
   <div class="flex-1 flex w-full justify-center items-center">
     @if (step() === 0) {
       <div class="h-full flex justify-center items-center">
-        <ciri2-drag-and-drop (parsedFile)="processFile($event)" />
+        <app-ciri2-drag-and-drop (parsedFile)="processFile($event)" />
       </div>
     } @else if (step() === 1) {
       <div class="p-5">
-        <ciri2-table
+        <app-ciri2-table
           [columns]="viewColumns()"
           [data]="components().slice(0, 10)"
           [showPaginator]="false"

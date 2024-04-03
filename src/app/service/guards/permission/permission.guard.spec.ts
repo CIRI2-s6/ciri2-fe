@@ -7,6 +7,7 @@ import { PermissionGuard } from './permission.guard';
 import { environment } from '../../../../environments/environment';
 
 describe('PermissionGuard', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let authServiceMock: any;
   let notifierServiceMock;
   let guard: PermissionGuard;

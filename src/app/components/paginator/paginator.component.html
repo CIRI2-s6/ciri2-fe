@@ -11,6 +11,8 @@
             *ngFor="let size of pageSizes"
             class="cursor-pointer hover:bg-gray-200 pl-5"
             (click)="changePageSize(size)"
+            (keyup)="changePageSize(size)"
+            tabindex="0"
           >
             {{ size }}
           </li>
@@ -31,8 +33,8 @@
 
   <div class="flex items-center">
     <button
-      [disabled]="currentPage() == 0"
-      ngClass="{{ currentPage() == 0 ? 'text-grey' : 'black' }}"
+      [disabled]="currentPage() === 0"
+      ngClass="{{ currentPage() === 0 ? 'text-grey' : 'black' }}"
       (click)="subtractCurrentPage()"
       class="mr-1"
     >

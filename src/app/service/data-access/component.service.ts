@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
@@ -6,7 +7,7 @@ import {
   paginationToQueryString
 } from '../../constants/pagination/pagination.model';
 import { HttpMethod } from '@auth0/auth0-angular';
-import { catchError, map, Observable, tap, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { ComponentResponse } from '../../constants/responseTypes/component.response';
 import { environment } from '../../../environments/environment';
 import { ComponentModel } from '../../constants/componentTypes/component.model';
@@ -66,11 +67,6 @@ export class ComponentService {
   ): Observable<ComponentResponse> {
     return this.http
       .post(`${environment.apiUrl}/${this.prefix}`, components)
-      .pipe(
-        tap((response) => {
-          console.log(response);
-        }),
-        map((response: any) => response as ComponentResponse)
-      );
+      .pipe(map((response: any) => response as ComponentResponse));
   }
 }

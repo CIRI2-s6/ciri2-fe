@@ -1,11 +1,13 @@
-import { Directive, Input, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, Input, ElementRef, Renderer2, OnInit } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
+import { environment } from '../../../environments/environment';
 
 @Directive({
+  // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[role]',
   standalone: true
 })
-export class RoleDirective {
+export class RoleDirective implements OnInit {
   @Input() role: string[];
 
   constructor(
@@ -23,8 +25,12 @@ export class RoleDirective {
         this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
         return false;
       }
-      const userRoles = user['http://api.ciri2.com/roles'];
-      if (userRoles.some((role: any) => this.role.includes(role))) {
+      const userRoles = user[environment.roleKey];
+      if (!userRoles) {
+        this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
+        return false;
+      }
+      if (userRoles.some((role: string) => this.role.includes(role))) {
         return true;
       }
       this.renderer.setStyle(this.el.nativeElement, 'display', 'none');

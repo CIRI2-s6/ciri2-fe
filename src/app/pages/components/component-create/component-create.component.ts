@@ -57,13 +57,11 @@ export class ComponentCreateComponent {
   });
 
   processFile(file: any) {
-    console.log(file);
     const columns = file[0];
     const data = file.slice(1);
 
     // Find the type of the component
     const type = this.findType(columns);
-    console.log(type);
 
     const objects = data.map((row: string[]) => {
       const obj: any = {};
@@ -84,13 +82,6 @@ export class ComponentCreateComponent {
       }
       duplicationsAdded.push(obj.name);
       return true;
-    });
-
-    // log duplicate objects
-    objects.forEach((obj: any) => {
-      if (obj.name === 'Intel Core i5-9500F') {
-        console.log(obj);
-      }
     });
 
     this.processedFile.set(true);
@@ -122,19 +113,15 @@ export class ComponentCreateComponent {
     this.service
       .checkComponentExists(componentNames)
       .subscribe((response: any) => {
-        console.log(response);
         this.duplicateComponents.set(response.data.data);
       });
   }
 
   importNewComponents() {
-    console.log('Importing new components');
     this.nextStep();
-    console.log(this.newComponents());
     this.service
       .batchImportComponents(this.processComponents(this.newComponents()))
-      .subscribe((response: any) => {
-        console.log(response);
+      .subscribe(() => {
         this.nextStep();
       });
   }
@@ -144,8 +131,7 @@ export class ComponentCreateComponent {
     this.nextStep();
     this.service
       .batchImportComponents(this.processComponents(this.components()))
-      .subscribe((response: any) => {
-        console.log(response);
+      .subscribe(() => {
         this.nextStep();
       });
   }

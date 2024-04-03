@@ -1,7 +1,7 @@
 @if (!isLoading) {
   <div class="flex justify-between w-full">
     <div *ngIf="showFilter">
-      <label>Filter</label>
+      <span>Filter</span>
       <input
         type="text"
         id="input-filter"
@@ -130,7 +130,7 @@
     </table>
   </div>
   <div *ngIf="showPaginator" class="h-12 flex justify-end pr-5">
-    <ciri2-paginator
+    <app-ciri2-paginator
       *ngIf="data.length > 0"
       (paginationChange)="paginatorChange($event)"
       [totalItems]="totalItems"

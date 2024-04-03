@@ -18,16 +18,22 @@ export class PermissionGuard {
       if (!route.data['roles']) return true;
       const roles = route.data['roles'] as Array<string>;
       const userRoles = user[environment.roleKey];
-      console.log(userRoles.some((role: any) => roles.includes(role)));
-      if (!userRoles.some((role: any) => roles.includes(role))) {
+      if (!userRoles) {
         this.notifierService.notify(
           'error',
           'You do not have permission to access this page'
         );
-        console.log('You do not have permission to access this page');
+        this.router.navigate(['/']);
+        return false;
+      }
+      if (!userRoles.some((role: string) => roles.includes(role))) {
+        this.notifierService.notify(
+          'error',
+          'You do not have permission to access this page'
+        );
         this.router.navigate(['/']);
       }
-      return userRoles.some((role: any) => roles.includes(role));
+      return userRoles.some((role: string) => roles.includes(role));
     });
   }
 }

@@ -18,7 +18,6 @@ describe('AppComponent', () => {
   it(`should have the 'ciri2' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    console.log(app.title);
     expect(app.title).toEqual('ciri2');
   });
 

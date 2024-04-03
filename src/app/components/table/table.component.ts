@@ -2,6 +2,8 @@ import {
   Component,
   EventEmitter,
   Input,
+  OnChanges,
+  OnInit,
   Output,
   ViewChild,
   signal
@@ -26,7 +28,7 @@ import { RequestStatus } from '../../constants/requestTypes/requestStatus';
 import { Ciri2ButtonComponent } from '../buttons/ciri2-button/Ciri2Button.component';
 
 @Component({
-  selector: 'ciri2-table',
+  selector: 'app-ciri2-table',
   standalone: true,
   imports: [
     CommonModule,
@@ -43,7 +45,7 @@ import { Ciri2ButtonComponent } from '../buttons/ciri2-button/Ciri2Button.compon
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent {
+export class TableComponent implements OnInit, OnChanges {
   @Input() columns: TableColumn[] = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() data: any[] = [];
