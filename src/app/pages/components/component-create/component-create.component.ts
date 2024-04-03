@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  signal,
+  signal
 } from '@angular/core';
 import { DragAndDropComponent } from '../../../components/import/drag-and-drop/drag-and-drop.component';
 import { componentTypes } from '../../../constants/componentTypes/component.properties';
@@ -22,14 +23,17 @@ import { Router } from '@angular/router';
     DragAndDropComponent,
     TableComponent,
     Ciri2ButtonComponent,
-    StepperComponent,
+    StepperComponent
   ],
   templateUrl: './component-create.component.html',
   styleUrl: './component-create.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ComponentCreateComponent {
-  constructor(private service: ComponentService, private router: Router) {}
+  constructor(
+    private service: ComponentService,
+    private router: Router
+  ) {}
 
   step = signal<number>(0);
   processedFile = signal<boolean>(false);
@@ -40,7 +44,7 @@ export class ComponentCreateComponent {
       return {
         name: column,
         key: column,
-        type: ColumnTypes.TEXT,
+        type: ColumnTypes.TEXT
       };
     });
   });
@@ -68,12 +72,6 @@ export class ComponentCreateComponent {
       });
       return obj;
     });
-    const duplicateNames = objects
-      .map((obj: any) => obj.name)
-      .filter(
-        (name: string, index: number, self: string[]) =>
-          self.indexOf(name) !== index
-      );
 
     const duplicationsAdded: any[] = [];
 
@@ -170,7 +168,7 @@ export class ComponentCreateComponent {
           properties: properties.reduce((acc: any, property: any) => {
             acc[property] = component[property];
             return acc;
-          }, {}),
+          }, {})
         };
       })
       .filter((component) => component !== null) as any[];

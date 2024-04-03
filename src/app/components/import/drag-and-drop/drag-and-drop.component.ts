@@ -9,7 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './drag-and-drop.component.html',
-  styleUrls: ['./drag-and-drop.component.scss'],
+  styleUrls: ['./drag-and-drop.component.scss']
 })
 export class DragAndDropComponent {
   fileChanged$ = new Subject<Event>();
@@ -53,7 +53,7 @@ export class DragAndDropComponent {
         complete: (result: ParseResult<unknown>) => {
           const transformedData = this.transformParsedData(result.data);
           this.parsedFile.emit(transformedData);
-        },
+        }
       });
     });
   }

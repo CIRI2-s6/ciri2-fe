@@ -10,7 +10,7 @@ import { AuthService } from '@auth0/auth0-angular';
   >
     Log in
   </button>`,
-  standalone: true,
+  standalone: true
 })
 export class AuthButtonComponent {
   constructor(public auth: AuthService) {}

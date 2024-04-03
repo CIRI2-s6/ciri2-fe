@@ -1,4 +1,4 @@
-import { RequestStatus } from 'apps/admin/admin-fe/src/data-access/requestStatus';
+import { RequestStatus } from '../../../constants/requestTypes/requestStatus';
 
 export interface DropdownRowColumn {
   dropDownValues: string[];

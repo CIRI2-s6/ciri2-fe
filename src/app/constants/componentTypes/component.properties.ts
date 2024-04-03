@@ -7,8 +7,8 @@ export const cpuProperties = {
     'boost_clock',
     'tdp',
     'smt',
-    'graphics',
-  ],
+    'graphics'
+  ]
 };
 
 export const componentTypes = [cpuProperties];

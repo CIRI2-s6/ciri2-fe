@@ -4,7 +4,7 @@ import {
   Input,
   Output,
   ViewChild,
-  signal,
+  signal
 } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -13,12 +13,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { Subject, debounceTime } from 'rxjs';
+import { Subject } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import {
   ActionButton,
   RowAction,
-  TablePagination,
+  TablePagination
 } from './models/pagination.model';
 import { PaginatorComponent } from '../paginator/paginator.component';
 import { ColumnTypes, TableColumn } from './models/column.model';
@@ -38,10 +38,10 @@ import { Ciri2ButtonComponent } from '../buttons/ciri2-button/Ciri2Button.compon
     MatCheckboxModule,
     PaginatorComponent,
     MatIconModule,
-    Ciri2ButtonComponent,
+    Ciri2ButtonComponent
   ],
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
   @Input() columns: TableColumn[] = [];
@@ -96,14 +96,14 @@ export class TableComponent {
     if (this.showCheckbox) {
       this.columnsToDisplay.update((columns) => [
         { name: 'select', key: 'select', type: ColumnTypes.SELECT },
-        ...columns,
+        ...columns
       ]);
     }
 
     if (this.rowActions.length > 0) {
       this.columnsToDisplay.update((columns) => [
         ...columns,
-        { name: 'actions', key: 'actions', type: ColumnTypes.ACTION },
+        { name: 'actions', key: 'actions', type: ColumnTypes.ACTION }
       ]);
     }
   }
@@ -130,7 +130,7 @@ export class TableComponent {
     this.paginationChange$.next({
       skip: this.skip() ?? 0,
       limit: this.pageSize() ?? 10,
-      query: filter.value,
+      query: filter.value
     });
   }
 

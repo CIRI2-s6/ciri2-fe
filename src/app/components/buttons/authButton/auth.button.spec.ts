@@ -12,7 +12,7 @@ describe('AuthButtonComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [AuthButtonComponent],
-      providers: [{ provide: AuthService, useValue: authService }],
+      providers: [{ provide: AuthService, useValue: authService }]
     }).compileComponents();
   });
 

@@ -12,7 +12,7 @@ import { DOCUMENT } from '@angular/common';
       Log out
     </button>
   `,
-  standalone: true,
+  standalone: true
 })
 export class LogoutButtonComponent {
   constructor(
@@ -23,8 +23,8 @@ export class LogoutButtonComponent {
   logout() {
     this.auth.logout({
       logoutParams: {
-        returnTo: this.document.location.origin,
-      },
+        returnTo: this.document.location.origin
+      }
     });
   }
 }

@@ -14,15 +14,15 @@ describe('NavbarComponent', () => {
     authServiceMock = jasmine.createSpyObj('AuthService', [
       'login',
       'logout',
-      'getUser',
+      'getUser'
     ]);
 
     await TestBed.configureTestingModule({
       imports: [NavbarComponent, RoleDirective],
       providers: [
         { provide: AuthService, useValue: authServiceMock },
-        { provide: ActivatedRoute, useValue: { params: of({ id: 'testId' }) } }, // Mock ActivatedRoute
-      ],
+        { provide: ActivatedRoute, useValue: { params: of({ id: 'testId' }) } } // Mock ActivatedRoute
+      ]
     }).compileComponents();
   });
 

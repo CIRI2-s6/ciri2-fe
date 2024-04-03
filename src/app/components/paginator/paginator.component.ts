@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [CommonModule, MatIconModule],
   templateUrl: './paginator.component.html',
-  styleUrls: ['./paginator.component.scss'],
+  styleUrls: ['./paginator.component.scss']
 })
 export class PaginatorComponent {
   @Input() pageSizes = [10, 25, 50, 100];
@@ -50,7 +50,7 @@ export class PaginatorComponent {
   emitPageChange() {
     this.paginationChange.emit({
       skip: this.currentPage(),
-      pageSize: this.selectedPageSize,
+      pageSize: this.selectedPageSize
     });
   }
 

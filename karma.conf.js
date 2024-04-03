@@ -24,7 +24,8 @@ module.exports = function (config) {
     jasmineHtmlReporter: {
       suppressAll: true // removes the duplicated traces
     },
-    coverageIstanbulReporter: { // Change this line
+    coverageIstanbulReporter: {
+      // Change this line
       dir: require('path').join(__dirname, './coverage/ciri2'),
       subdir: '.',
       reports: ['html', 'lcovonly', 'text-summary'] // Add 'lcovonly' here

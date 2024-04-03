@@ -4,19 +4,19 @@ export const notifierOptions: NotifierOptions = {
   position: {
     horizontal: {
       position: 'right',
-      distance: 12,
+      distance: 12
     },
     vertical: {
       position: 'top',
       distance: 12,
-      gap: 10,
-    },
+      gap: 10
+    }
   },
   theme: 'material',
   behaviour: {
     autoHide: 3000,
     onClick: 'hide',
     showDismissButton: false,
-    stacking: 4,
-  },
+    stacking: 4
+  }
 };

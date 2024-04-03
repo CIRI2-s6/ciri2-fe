@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   providers: [],
   templateUrl: `./home.component.html`,
   styleUrl: './home.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {}

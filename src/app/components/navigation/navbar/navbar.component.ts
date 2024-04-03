@@ -14,11 +14,11 @@ import { RoleDirective } from '../../../service/directives/role.directive';
     AuthButtonComponent,
     LogoutButtonComponent,
     RouterLink,
-    RoleDirective,
+    RoleDirective
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
   constructor(public auth: AuthService) {}

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { NotifierService } from 'angular-notifier';
 import {
   Pagination,
-  paginationToQueryString,
+  paginationToQueryString
 } from '../../constants/pagination/pagination.model';
 import { HttpMethod } from '@auth0/auth0-angular';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
@@ -12,10 +12,13 @@ import { environment } from '../../../environments/environment';
 import { ComponentModel } from '../../constants/componentTypes/component.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ComponentService {
-  constructor(private http: HttpClient, private notifier: NotifierService) {}
+  constructor(
+    private http: HttpClient,
+    private notifier: NotifierService
+  ) {}
 
   prefix = 'component';
 
@@ -39,9 +42,9 @@ export class ComponentService {
               message: response.message,
               data: {
                 components: response.data.data,
-                total: response.data.total,
-              },
-            } as ComponentResponse)
+                total: response.data.total
+              }
+            }) as ComponentResponse
         )
       );
   }

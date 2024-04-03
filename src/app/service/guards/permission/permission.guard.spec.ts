@@ -13,7 +13,7 @@ describe('PermissionGuard', () => {
 
   beforeEach(() => {
     authServiceMock = {
-      user$: of({ [environment.roleKey]: [] }),
+      user$: of({ [environment.roleKey]: [] })
     };
 
     notifierServiceMock = jasmine.createSpyObj('NotifierService', ['notify']);
@@ -22,8 +22,8 @@ describe('PermissionGuard', () => {
       providers: [
         PermissionGuard,
         { provide: NotifierService, useValue: notifierServiceMock },
-        { provide: AuthService, useValue: authServiceMock },
-      ],
+        { provide: AuthService, useValue: authServiceMock }
+      ]
     });
 
     guard = TestBed.inject(PermissionGuard);
@@ -33,7 +33,7 @@ describe('PermissionGuard', () => {
     authServiceMock.user$ = of({ [environment.roleKey]: ['admin'] });
 
     const route = {
-      data: { roles: ['admin'] },
+      data: { roles: ['admin'] }
     } as unknown as ActivatedRouteSnapshot;
 
     const res = guard.canActivate(route);
@@ -42,7 +42,7 @@ describe('PermissionGuard', () => {
 
   it('should not allow access if user is not logged in', () => {
     const route = {
-      data: { roles: [''] },
+      data: { roles: [''] }
     } as unknown as ActivatedRouteSnapshot;
 
     const res = guard.canActivate(route);

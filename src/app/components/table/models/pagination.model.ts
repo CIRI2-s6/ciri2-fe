@@ -1,6 +1,6 @@
 export enum SortDirection {
   ASC = 1,
-  DESC = -1,
+  DESC = -1
 }
 
 export interface TablePagination {

@@ -3,7 +3,7 @@ import { AuthService } from '@auth0/auth0-angular';
 
 @Directive({
   selector: '[role]',
-  standalone: true,
+  standalone: true
 })
 export class RoleDirective {
   @Input() role: string[];

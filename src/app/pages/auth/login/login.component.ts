@@ -8,6 +8,6 @@ import { AuthButtonComponent } from '../../../components/buttons/authButton/auth
   imports: [CommonModule, AuthButtonComponent],
   template: `<app-auth-button />`,
   styleUrl: './login.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent {}

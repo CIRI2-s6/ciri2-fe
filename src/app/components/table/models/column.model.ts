@@ -9,5 +9,5 @@ export enum ColumnTypes {
   TEXT = 'text',
   ACTION = 'action',
   DROPDOWN = 'dropdown',
-  ASYNCTEXT = 'asyncText',
+  ASYNCTEXT = 'asyncText'
 }

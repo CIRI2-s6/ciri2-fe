@@ -1,15 +1,17 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  signal,
+  OnInit,
+  signal
 } from '@angular/core';
 import { TableComponent } from '../../../components/table/table.component';
 import { ComponentService } from '../../../service/data-access/component.service';
 import {
   ColumnTypes,
-  TableColumn,
+  TableColumn
 } from '../../../components/table/models/column.model';
 import { ComponentModel } from '../../../constants/componentTypes/component.model';
 import { Ciri2ButtonComponent } from '../../../components/buttons/ciri2-button/Ciri2Button.component';
@@ -21,9 +23,9 @@ import { Router } from '@angular/router';
   imports: [CommonModule, TableComponent, Ciri2ButtonComponent],
   templateUrl: './component-overview.component.html',
   styleUrl: './component-overview.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ComponentOverview {
+export class ComponentOverviewComponent implements OnInit {
   constructor(
     private componentService: ComponentService,
     private router: Router
@@ -37,14 +39,14 @@ export class ComponentOverview {
     if (!this.components() || !this.components().length) {
       return [];
     }
-    return this.componentToColumns(this.components());
+    return this.componentToColumns();
   });
   displayComponents = computed(() => {
     console.log(this.components());
     return this.components().map((component) => {
       return {
         ...component,
-        ...component.properties,
+        ...component.properties
       };
     });
   });
@@ -54,17 +56,17 @@ export class ComponentOverview {
     this.itemsAreLoading.set(true);
   }
 
-  componentToColumns(component: ComponentModel[]): TableColumn[] {
+  componentToColumns(): TableColumn[] {
     const columns: TableColumn[] = [];
     columns.push({
       name: 'Name',
       key: 'name',
-      type: ColumnTypes.TEXT,
+      type: ColumnTypes.TEXT
     });
     columns.push({
       name: 'Type',
       key: 'type',
-      type: ColumnTypes.TEXT,
+      type: ColumnTypes.TEXT
     });
     const uniqueKeys = new Set<string>();
     this.components().forEach((component) => {
@@ -77,7 +79,7 @@ export class ComponentOverview {
       columns.push({
         name: key,
         key: key,
-        type: ColumnTypes.TEXT,
+        type: ColumnTypes.TEXT
       });
     });
     return columns;
@@ -92,7 +94,7 @@ export class ComponentOverview {
     const paginationData = {
       skip: pagination.skip + 1,
       limit: pagination.limit,
-      filter: { type: this.type() },
+      filter: { type: this.type() }
     };
     this.fetchComponents(paginationData);
   }

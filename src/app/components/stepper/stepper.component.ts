@@ -9,18 +9,17 @@ import { MatIconModule } from '@angular/material/icon';
   template: ` <div class="flex flex-col justify-center items-center">
     <div class="flex items-center">
       @for (item of steps(); track $index) {
-
-      <div
-        class="w-10 h-10 rounded-full  text-white flex items-center justify-center"
-        [ngClass]="currentStep() >= $index ? 'bg-primary' : 'bg-gray-400'"
-      >
-        <mat-icon>{{ item.icon }}</mat-icon>
-      </div>
-      <div
-        *ngIf="$index !== steps().length - 1"
-        class="w-16 h-2"
-        [ngClass]="currentStep() > $index ? 'bg-primary' : 'bg-gray-300'"
-      ></div>
+        <div
+          class="w-10 h-10 rounded-full  text-white flex items-center justify-center"
+          [ngClass]="currentStep() >= $index ? 'bg-primary' : 'bg-gray-400'"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+        <div
+          *ngIf="$index !== steps().length - 1"
+          class="w-16 h-2"
+          [ngClass]="currentStep() > $index ? 'bg-primary' : 'bg-gray-300'"
+        ></div>
       }
     </div>
     <div class=" flex flex-col justify-center items-center w-full">
@@ -33,7 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     </div>
   </div>`,
   styleUrl: './stepper.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StepperComponent {
   steps =

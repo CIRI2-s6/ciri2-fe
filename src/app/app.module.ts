@@ -21,22 +21,22 @@ import { environment } from '../environments/environment';
       clientId: environment.clientId,
       authorizationParams: {
         audience: environment.audience,
-        redirect_uri: window.location.origin,
+        redirect_uri: window.location.origin
       },
       httpInterceptor: {
-        allowedList: [environment.apiUrl + '/*'],
-      },
+        allowedList: [environment.apiUrl + '/*']
+      }
     }),
     HttpClientModule,
-    NotifierModule.withConfig(notifierOptions),
+    NotifierModule.withConfig(notifierOptions)
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHttpInterceptor,
-      multi: true,
-    },
+      multi: true
+    }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
