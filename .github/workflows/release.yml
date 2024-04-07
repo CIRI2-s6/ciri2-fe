@@ -39,13 +39,13 @@ jobs:
       - name: Pull and run Docker image
         run: |
           docker pull jordywalraven/ciri2-fe:latest
-          docker run -d -p 4200:4200 jordywalraven/ciri2-fe:latest
+          docker run -d -p 80:80 jordywalraven/ciri2-fe:latest
 
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
-            http://localhost:4200
+            http://localhost:80
           uploadArtifacts: true
           temporaryPublicStorage: true
 
