@@ -47,7 +47,7 @@ jobs:
           urls: |
             http://localhost:80
           uploadArtifacts: true
-          configPath: ./lighthouserc.json # custom lighthouse configuration
+          configPath: ./lighthouse/lighthouserc.json # custom lighthouse configuration
           temporaryPublicStorage: true
 
 
