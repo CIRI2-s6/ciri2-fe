@@ -48,6 +48,7 @@ jobs:
             http://localhost:80
           uploadArtifacts: true
           configPath: ./lighthouse/lighthouserc.json # custom lighthouse configuration
+          budgetPath: ./lighthouse/budget.json # test performance budgets
           temporaryPublicStorage: true
 
 

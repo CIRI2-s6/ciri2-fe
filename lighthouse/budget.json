@@ -1,0 +1,11 @@
+[
+  {
+    "path": "/*",
+    "timings": [
+      {
+        "metric": "interactive",
+        "budget": 2000
+      }
+    ]
+  }
+]

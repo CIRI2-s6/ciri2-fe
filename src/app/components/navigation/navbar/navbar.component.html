@@ -28,7 +28,7 @@
       Components
     </p>
 
-    <ng-container *ngIf="auth.isAuthenticated$ | async; else showAuthButton">
+    <ng-container *ngIf="isAuthenticated(); else showAuthButton">
       <app-logout-button />
     </ng-container>
 

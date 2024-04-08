@@ -6,6 +6,7 @@ import { LogoutButtonComponent } from '../../buttons/logoutButton/logout.button'
 import { RouterLink } from '@angular/router';
 import { RoleDirective } from '../../../service/directives/role.directive';
 import { MatIcon } from '@angular/material/icon';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-navbar',
@@ -23,6 +24,8 @@ import { MatIcon } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent implements OnInit {
+  isAuthenticated = toSignal(this.auth.isAuthenticated$);
+
   constructor(public auth: AuthService) {}
   ngOnInit() {
     const hamburger = document.getElementById('hamburger');
