@@ -14,5 +14,5 @@ RUN pnpm run build
 # Stage 2: Serve the application from Nginx
 FROM nginx:alpine
 COPY --from=build /app/dist/ciri2/browser /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/conf.d
-EXPOSE 4200
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
