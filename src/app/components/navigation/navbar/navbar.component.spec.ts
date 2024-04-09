@@ -11,11 +11,10 @@ describe('NavbarComponent', () => {
   let authServiceMock: jasmine.SpyObj<AuthService>;
 
   beforeEach(async () => {
-    authServiceMock = jasmine.createSpyObj('AuthService', [
-      'login',
-      'logout',
-      'getUser'
-    ]);
+    authServiceMock = {
+      ...jasmine.createSpyObj('AuthService', ['login', 'logout', 'getUser']),
+      isAuthenticated$: of(true)
+    };
 
     await TestBed.configureTestingModule({
       imports: [NavbarComponent, RoleDirective],
