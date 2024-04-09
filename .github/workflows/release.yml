@@ -1,10 +1,11 @@
 name: Release
 
-
+# Runs when creating a new release on github
 on:
   release:
     types: [published]
 jobs:
+  # Build the application and push to dockerhub
   build-push:
     runs-on: ubuntu-latest
     steps:
@@ -26,6 +27,8 @@ jobs:
             jordywalraven/ciri2-fe:${{ github.sha }}
 
   lighthouse:
+    # Wait for the build-push job to finish
+    # and then run lighthouse on the deployed application
     needs: build-push
     runs-on: ubuntu-latest
     steps:
@@ -49,6 +52,3 @@ jobs:
           uploadArtifacts: true
           configPath: ./lighthouse/lighthouserc.json # custom lighthouse configuration
           temporaryPublicStorage: true
-
-
-

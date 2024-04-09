@@ -1,6 +1,10 @@
-name: Build and Test
+name: Development
+# run on every push
 on:
   push:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -9,6 +13,30 @@ jobs:
         node-version: [20]
     steps:
       - uses: actions/checkout@v3
+      # Setup pnpm
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      # Setup nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      # Install dependencies
+      - name: Install dependencies
+        run: pnpm install
+      # Check if application builds
+      - name: Build
+        run: pnpm build
+
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v3
         with:
           version: 8
@@ -19,7 +47,10 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-      - name: Build
-        run: pnpm build
       - name: Run tests
         run: pnpm test:ci
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

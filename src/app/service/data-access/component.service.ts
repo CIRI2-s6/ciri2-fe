@@ -58,7 +58,7 @@ export class ComponentService {
           this.notifier.notify('error', error.message);
           return throwError(error);
         }),
-        map((response: any): string[] => response) // Update the type of response to string[]
+        map((response: any): string[] => response.data.data) // Update the type of response to string[]
       );
   }
 

@@ -112,8 +112,8 @@ export class ComponentCreateComponent {
   checkComponentExists(componentNames: string[]): void {
     this.service
       .checkComponentExists(componentNames)
-      .subscribe((response: any) => {
-        this.duplicateComponents.set(response.data.data);
+      .subscribe((response: string[]) => {
+        this.duplicateComponents.set(response);
       });
   }
 
@@ -127,7 +127,6 @@ export class ComponentCreateComponent {
   }
 
   importAllComponents() {
-    console.log('Importing all components');
     this.nextStep();
     this.service
       .batchImportComponents(this.processComponents(this.components()))
