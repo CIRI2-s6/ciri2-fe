@@ -25,7 +25,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
         redirect_uri: window.location.origin
       },
       httpInterceptor: {
-        allowedList: [environment.apiUrl + '/*']
+        allowedList: ['*']
       }
     }),
     HttpClientModule,
