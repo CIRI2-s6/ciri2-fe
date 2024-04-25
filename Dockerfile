@@ -16,3 +16,5 @@ FROM nginx:alpine
 COPY --from=build /app/dist/ciri2/browser /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
+EXPOSE 443
+EXPOSE 8443
