@@ -45,7 +45,7 @@ jobs:
           docker run -d -p 80:80 jordywalraven/ciri2-fe:latest
 
       - name: Audit URLs using Lighthouse
-        uses: treosh/lighthouse-ci-action@v11
+        uses: treosh/lighthouse-ci-action@v12
         with:
           urls: |
             http://localhost:80
